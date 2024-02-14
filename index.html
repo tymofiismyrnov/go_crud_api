@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple API in Go with Gin</title>
+    <link rel="stylesheet" href="./static/style.css">
+</head>
+<body>
+    <h1>Simple API in Go with Gin</h1>
+    <p>This is a simple API application developed in Go using the Gin library.</p>
+
+    <h2>PostgreSQL Routes:</h2>
+    <ul>
+        <li><strong>GET /posts</strong>: Retrieve all posts</li>
+        <p><code>curl http://localhost:8080/posts</code></p>
+
+        <li><strong>GET /posts/:id</strong>: Retrieve a post by ID</li>
+        <p><code>curl http://localhost:8080/posts/123</code></p>
+
+        <li><strong>POST /posts</strong>: Create a new post</li>
+        <p><code>curl -X POST -H "Content-Type: application/json" -d '{"title":"New Post","content":"This is a new post."}' http://localhost:8080/posts</code></p>
+
+        <li><strong>PUT /posts/:id</strong>: Update a post by ID</li>
+        <p><code>curl -X PUT -H "Content-Type: application/json" -d '{"title":"Updated Post","content":"This post has been updated."}' http://localhost:8080/posts/123</code></p>
+
+        <li><strong>DELETE /posts/:id</strong>: Delete a post by ID</li>
+        <p><code>curl -X DELETE http://localhost:8080/posts/123</code></p>
+    </ul>
+
+    <hr> <!-- Horizontal line for separation -->
+
+    <h2>Redis Routes:</h2>
+    <ul>
+        <li><strong>POST /redis</strong>: Set a key-value pair in Redis</li>
+        <p><code>curl -X POST -d "key=mykey&value=myvalue" http://localhost:8080/redis</code></p>
+
+        <li><strong>GET /redis</strong>: Retrieve a value from Redis</li>
+        <p><code>curl http://localhost:8080/redis?key=mykey</code></p>
+
+        <li><strong>DELETE /redis</strong>: Delete a key from Redis</li>
+        <p><code>curl -X DELETE http://localhost:8080/redis?key=mykey</code></p>
+    </ul>
+
+    <hr> <!-- Horizontal line for separation -->
+
+    <h3>Environment Variables:</h3>
+    <p>Environment variables should be stored in the <code>.env</code> file since it's exported by the <code>initializers.LoadEnvVariables()</code> function.</p>
+    <ul>
+        <li><strong>PORT:</strong> The port on which the API is listening.</li>
+        <li><strong>DB_URL:</strong> PostgreSQL connection string in the format: <br>
+            <code>DB_URL="host=hostname user=username password=yourpass dbname=dbname port=port sslmode=disable"</code></li>
+        <li><strong>REDIS_HOST:</strong> Redis host in the format: <code>url:port</code></li>
+        <li><strong>REDIS_PASSWORD:</strong> The password for Redis.</li>
+    </ul>
+
+    <hr> <!-- Horizontal line for separation -->
+
+    <h3>Author:</h3>
+    <p><a href="https://www.linkedin.com/in/tymofii-smyrnov-63534216b/" target="_blank">Tymofii Smyrnov</a></p>
+</body>
+</html>

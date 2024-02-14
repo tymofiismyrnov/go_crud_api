@@ -6,8 +6,13 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+func Index(c *gin.Context) {
+	filepath := "./index.html"
+	c.File(filepath)
+}
+
 func Favicon(c *gin.Context) {
-	filepath := "./public/favicon.png"
+	filepath := "./static/favicon.png"
 	c.File(filepath)
 }
 

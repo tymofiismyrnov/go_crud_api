@@ -1,8 +1,6 @@
 package main
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
 
 	"github.com/tymofiismyrnov/go_crud_api/controllers"
@@ -19,9 +17,8 @@ func main() {
 	r := gin.Default()
 
 	// Basic routes
-	r.GET("/", func(c *gin.Context) {
-		c.IndentedJSON(http.StatusOK, gin.H{"message": "pong"})
-	})
+	r.Static("/static", "./static")
+	r.GET("/", controllers.Index)
 	r.GET("/favicon.ico", controllers.Favicon)
 	r.GET("/healthz", controllers.HealthCheck)
 
