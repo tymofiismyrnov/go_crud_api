@@ -12,6 +12,7 @@ import (
 func init() {
 	initializers.LoadEnvVariables()
 	initializers.ConnectToDB()
+	initializers.ConnectoToRedis()
 }
 
 func main() {
@@ -30,6 +31,10 @@ func main() {
 	r.POST("/posts", controllers.PostsCreate)
 	r.PUT("/posts/:id", controllers.PostsUpdate)
 	r.DELETE("/posts/:id", controllers.PostDeleteById)
+
+	r.POST("/redis", controllers.RedisSet)
+	r.GET("/redis", controllers.RedisGet)
+	r.DELETE("/redis", controllers.RedisDelete)
 
 	// Run server
 	r.Run()
